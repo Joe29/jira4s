@@ -42,7 +42,7 @@ private[jira4s] trait SearchClient[R[_], T <: AuthContext] extends HasClient[R] 
 
   def getAllProjectIssues(projectKey: String)(implicit userCtx: T): R[Either[JiraError, SearchResults]] = {
     search(
-      s"jql=project=$projectKey",
+      s"project=$projectKey",
       maxResults = -1
     )
   }
